@@ -1,0 +1,1048 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>2026 冬日關西親子自駕：山海湖・古都琉璃光（8天7夜）</title>
+  <meta name="description" content="2026/2/7–2/14 冬日關西親子自駕行程：三重、滋賀、宇治、奈良、大阪。手機友善：日期切換、關鍵字搜尋、文字縮放、每日互動地圖＋一鍵開當日多點路線。" />
+  <style>
+    :root{
+      --bg: #0b1020;
+      --panel: rgba(255,255,255,0.06);
+      --panel2: rgba(0,0,0,.24);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.65);
+      --line: rgba(255,255,255,0.12);
+      --accent: #79d7ff;
+      --warn:#ffd479;
+      --good:#80f7c4;
+      --bad:#ff7aa2;
+      --radius: 16px;
+      --shadow: 0 10px 35px rgba(0,0,0,.35);
+      --scale: 1;
+      --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
+
+      --safeTop: env(safe-area-inset-top, 0px);
+      --safeBot: env(safe-area-inset-bottom, 0px);
+    }
+    *{ box-sizing: border-box; }
+    html, body{ height:100%; }
+    body{
+      margin:0;
+      background:
+        radial-gradient(1200px 700px at 20% 10%, rgba(121,215,255,.15), transparent 60%),
+        radial-gradient(900px 600px at 80% 20%, rgba(167,139,250,.12), transparent 60%),
+        radial-gradient(800px 600px at 50% 90%, rgba(128,247,196,.08), transparent 60%),
+        var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      line-height: 1.6;
+      font-size: calc(16px * var(--scale));
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+    a{ color: var(--accent); text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+
+    /* ===== Mobile-first layout ===== */
+    .app{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: calc(12px + var(--safeTop)) 12px calc(90px + var(--safeBot));
+    }
+
+    .card{
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 14px;
+    }
+    .stack{ display:flex; flex-direction:column; gap: 12px; }
+
+    .title{
+      font-size: 1.15em;
+      font-weight: 900;
+      letter-spacing: .2px;
+      margin: 0;
+    }
+    .subtitle{
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: .95em;
+    }
+    .pillrow{ display:flex; flex-wrap:wrap; gap: 8px; margin-top: 10px; }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .9em;
+      user-select: none;
+    }
+    .pill b{ color: var(--text); font-weight: 800; }
+
+    .hero{
+      background: linear-gradient(135deg, rgba(121,215,255,.14), rgba(167,139,250,.10));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 14px;
+    }
+    .hero h1{ margin: 0; font-size: 1.35em; letter-spacing: .2px; }
+    .hero p{ margin: 10px 0 0; color: var(--muted); }
+
+    .route{
+      margin-top: 12px;
+      padding: 12px;
+      border-radius: 14px;
+      background: var(--panel2);
+      border: 1px solid var(--line);
+      color: var(--muted);
+    }
+    .route b{ color: var(--text); }
+
+    details.day{
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    details.day[open]{ background: rgba(255,255,255,.07); }
+    summary{
+      list-style:none;
+      cursor:pointer;
+      padding: 14px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 12px;
+      user-select:none;
+    }
+    summary::-webkit-details-marker{ display:none; }
+
+    .sumL{ display:flex; flex-direction:column; gap: 4px; min-width: 0; }
+    .sumTitle{ font-weight: 900; font-size: 1.05em; }
+    .sumSub{
+      color: var(--muted);
+      font-size: .92em;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .sumR{
+      color: var(--muted);
+      font-size: .88em;
+      white-space:nowrap;
+      opacity:.9;
+      padding-top: 2px;
+    }
+
+    .body{
+      border-top: 1px solid var(--line);
+      padding: 14px;
+      display:flex;
+      flex-direction:column;
+      gap: 12px;
+    }
+
+    .section{
+      background: rgba(0,0,0,.18);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px;
+    }
+    .section h3{ margin: 0 0 8px; font-size: 1.02em; }
+
+    .items{ display:flex; flex-direction:column; gap: 10px; }
+    .item{
+      padding: 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+    }
+    .item .top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 10px;
+    }
+    .item .name{ font-weight: 850; min-width:0; }
+    .item .time{ color: var(--muted); font-size: .9em; white-space:nowrap; }
+    .item .desc{ margin-top: 6px; color: var(--muted); }
+
+    .tagrow{ margin-top: 8px; display:flex; flex-wrap:wrap; gap: 6px; }
+    .tag{
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      font-size: .85em;
+      color: var(--muted);
+    }
+    .tag.warn{ color: #1a1200; background: rgba(255,212,121,.85); border-color: rgba(255,212,121,.55); }
+    .tag.good{ color: #002015; background: rgba(128,247,196,.78); border-color: rgba(128,247,196,.45); }
+    .tag.bad{ color: #26000e; background: rgba(255,122,162,.75); border-color: rgba(255,122,162,.45); }
+
+    .maps{ display:flex; flex-wrap:wrap; gap: 8px; margin-top: 10px; }
+    .maplink{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(0,0,0,.22);
+      color: var(--text);
+      text-decoration:none;
+      font-size: .95em;
+      width: 100%;
+    }
+    .maplink:hover{ background: rgba(255,255,255,.10); text-decoration:none; }
+    .maplink .pin{ filter: drop-shadow(0 3px 8px rgba(0,0,0,.3)); }
+    @media (min-width: 520px){
+      .maplink{ width: auto; }
+    }
+
+    /* Map area */
+    .mapBoxHead{
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .mapControls{
+      display:flex;
+      gap: 8px;
+      flex-wrap:wrap;
+    }
+    .select{
+      width: 100%;
+      padding: 12px 12px;
+      border-radius: 14px;
+      background: rgba(0,0,0,.25);
+      border: 1px solid var(--line);
+      color: var(--text);
+      outline: none;
+      font: inherit;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .mapFrameWrap{
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow:hidden;
+      background: rgba(0,0,0,.22);
+    }
+    .mapFrame{
+      width: 100%;
+      height: 320px;
+      border: 0;
+      display:block;
+    }
+    @media (min-width: 760px){
+      .mapFrame{ height: 360px; }
+      .mapBoxHead{ flex-direction:row; align-items:flex-start; justify-content:space-between; }
+      .mapControls{ justify-content:flex-end; }
+      .select{ width: 360px; }
+    }
+
+    .recap{
+      background: linear-gradient(135deg, rgba(255,212,121,.14), rgba(255,122,162,.10));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 14px;
+    }
+    .recap h2{ margin:0; font-size: 1.15em; }
+    .recap ul{ margin: 10px 0 0; padding-left: 20px; color: var(--muted); }
+    .small{ color: var(--muted); font-size: .92em; }
+    .hidden{ display:none !important; }
+
+    mark{
+      background: rgba(121,215,255,.22);
+      color: var(--text);
+      padding: 0 .15em;
+      border-radius: .35em;
+    }
+
+    /* ===== Mobile sticky bottom bar (controls) ===== */
+    .bottomBar{
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 10px 12px calc(10px + var(--safeBot));
+      background: rgba(0,0,0,.55);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid var(--line);
+      z-index: 50;
+    }
+    .bottomBarInner{
+      max-width: 980px;
+      margin: 0 auto;
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+    }
+    .row{
+      display:flex;
+      gap: 10px;
+      align-items:center;
+    }
+    .row > *{ flex: 1; }
+    .search{
+      width: 100%;
+      padding: 12px 12px;
+      border-radius: 14px;
+      background: rgba(0,0,0,.30);
+      border: 1px solid var(--line);
+      color: var(--text);
+      outline: none;
+    }
+    .search::placeholder{ color: rgba(255,255,255,.45); }
+    .btn{
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.08);
+      color: var(--text);
+      padding: 12px 12px;
+      border-radius: 14px;
+      cursor: pointer;
+      font: inherit;
+      width: 100%;
+      white-space: nowrap;
+    }
+    .btn:active{ transform: translateY(1px); }
+
+    .zoomRow{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+    }
+    .zoomRow span{ color: var(--muted); font-size: .92em; white-space:nowrap; }
+    .zoomRow input[type="range"]{ width: 100%; }
+    .toolbarHint{
+      display:flex;
+      justify-content:space-between;
+      gap: 10px;
+      color: var(--muted);
+      font-size: .88em;
+    }
+
+    /* Floating "Jump to Day" button for very fast navigation */
+    .fab{
+      position: fixed;
+      right: 12px;
+      bottom: calc(96px + var(--safeBot));
+      z-index: 60;
+      border-radius: 999px;
+      padding: 12px 14px;
+      background: rgba(121,215,255,.20);
+      border: 1px solid rgba(121,215,255,.35);
+      color: var(--text);
+      box-shadow: var(--shadow);
+      cursor:pointer;
+      user-select:none;
+    }
+    .fab:active{ transform: translateY(1px); }
+
+    /* Bottom sheet for day navigation */
+    .sheetBack{
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.55);
+      z-index: 80;
+      display:none;
+    }
+    .sheet{
+      position: fixed;
+      left: 0; right:0;
+      bottom: 0;
+      z-index: 90;
+      background: rgba(10,14,28,.92);
+      border-top-left-radius: 18px;
+      border-top-right-radius: 18px;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      padding: 12px 12px calc(12px + var(--safeBot));
+      transform: translateY(110%);
+      transition: transform .22s ease;
+      max-height: 70vh;
+      overflow:auto;
+    }
+    .sheet.open{ transform: translateY(0); }
+    .sheetBack.show{ display:block; }
+    .sheetHeader{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .sheetTitle{ font-weight: 900; }
+    .closeX{
+      width: 42px; height: 42px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      cursor:pointer;
+      font-size: 18px;
+      line-height: 42px;
+      text-align:center;
+    }
+    .daylist{
+      display:flex;
+      flex-direction:column;
+      gap: 8px;
+    }
+    .daylink{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 10px;
+      padding: 12px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid var(--line);
+      cursor:pointer;
+      user-select:none;
+    }
+    .daylink .left{ display:flex; flex-direction:column; gap: 2px; min-width: 0; }
+    .daylink .d{ font-weight: 900; }
+    .daylink .meta{
+      color: var(--muted);
+      font-size: .88em;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      max-width: 70vw;
+    }
+    .badge{
+      padding: 4px 8px;
+      border-radius: 999px;
+      font-size: .82em;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      white-space:nowrap;
+      opacity:.9;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app">
+    <div class="stack">
+      <section class="hero">
+        <p class="title" style="margin:0;">山海湖・古都琉璃光</p>
+        <p class="subtitle">2026 冬日關西親子自駕｜8 天 7 夜（2/7–2/14）</p>
+        <div class="pillrow">
+          <span class="pill">🧭 <b>一鍵開當日路線</b></span>
+          <span class="pill">🗺️ <b>每日互動地圖</b></span>
+          <span class="pill">❄️ <b>雪地輪胎</b> 必選</span>
+        </div>
+        <p style="margin:10px 0 0; color:var(--muted);">
+          三重燈光秀＋御在所樹冰玩雪＋鳥羽海洋探險＋滋賀箱館山玩雪＆水杉大道＋宇治抹茶＋奈良琉璃繪＋大阪親子點。
+        </p>
+        <div class="route">
+          <b>路線概念：</b> 關西機場 → 三重桑名 → 菰野 → 鳥羽 → 滋賀 → 宇治 → 奈良 → 大阪 → 關西機場
+          <div class="small" style="margin-top:6px;">逆時針環狀繞行，不走回頭路。</div>
+        </div>
+      </section>
+
+      <section id="days" class="stack"></section>
+
+      <section class="recap">
+        <h2>💡 最終重要提醒（Recap）</h2>
+        <ul>
+          <li><b>租車務必指定雪地輪胎（Snow Tires）</b>：御在所、琵琶湖、奈良夜間路面可能結冰或積雪。</li>
+          <li><b>Day 5 奈良琉璃繪保暖</b>：全戶外，請備帽子、手套、暖暖包。</li>
+          <li><b>導航建議</b>：優先用景點名稱／電話（或 MapCode）比地址更準。</li>
+        </ul>
+        <div class="small" style="margin-top:8px;">手機版：底部工具列可搜尋/縮放/展開收合/複製分享文字；右下可快速跳 Day。</div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Floating Jump -->
+  <button id="fab" class="fab" type="button">📅 跳 Day</button>
+
+  <!-- Bottom Sheet -->
+  <div id="sheetBack" class="sheetBack"></div>
+  <div id="sheet" class="sheet" role="dialog" aria-modal="true" aria-label="依日期檢索">
+    <div class="sheetHeader">
+      <div class="sheetTitle">📅 依日期檢索</div>
+      <div id="closeSheet" class="closeX" role="button" aria-label="關閉">✕</div>
+    </div>
+    <div id="daylist" class="daylist"></div>
+  </div>
+
+  <!-- Sticky Bottom Bar -->
+  <div class="bottomBar">
+    <div class="bottomBarInner">
+      <div class="row">
+        <input id="q" class="search" type="search" placeholder="搜尋：箱館山 / 抹茶 / AEON / 琉璃繪 / 溫泉 / 水杉…" autocomplete="off" />
+        <button id="share" class="btn" type="button">分享</button>
+      </div>
+      <div class="zoomRow">
+        <span id="zoomLabel">100%</span>
+        <input id="zoom" type="range" min="85" max="135" step="5" value="100" />
+        <button id="openAll" class="btn" type="button">展開</button>
+        <button id="closeAll" class="btn" type="button">收合</button>
+      </div>
+      <div class="toolbarHint">
+        <span>提示：每一天都有「開當日路線（多點）」</span>
+        <span>離線分享：傳 HTML 檔即可</span>
+      </div>
+    </div>
+  </div>
+
+<script>
+  // ===== Map URL helpers =====
+  const mapsSearch = (q) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
+  const mapsEmbed  = (q) => `https://www.google.com/maps?q=${encodeURIComponent(q)}&output=embed`;
+  const mapsLink   = (url) => url;
+
+  // Google Maps multi-stop directions (driving)
+  const mapsDirections = (points, travelmode="driving") => {
+    const clean = (points || []).map(s => (s || "").trim()).filter(Boolean);
+    if (clean.length === 0) return "https://www.google.com/maps";
+    if (clean.length === 1) return mapsSearch(clean[0]);
+
+    const origin = clean[0];
+    const destination = clean[clean.length - 1];
+    const waypoints = clean.slice(1, -1);
+
+    const params = new URLSearchParams();
+    params.set("api", "1");
+    params.set("origin", origin);
+    params.set("destination", destination);
+    params.set("travelmode", travelmode);
+    if (waypoints.length) params.set("waypoints", waypoints.join("|"));
+
+    return `https://www.google.com/maps/dir/?${params.toString()}`;
+  };
+
+  // ===== DOM helper =====
+  const el = (tag, attrs={}, children=[]) => {
+    const n = document.createElement(tag);
+    for (const [k,v] of Object.entries(attrs)){
+      if (k === "class") n.className = v;
+      else if (k === "html") n.innerHTML = v;
+      else if (k.startsWith("on") && typeof v === "function") n.addEventListener(k.substring(2), v);
+      else n.setAttribute(k, v);
+    }
+    (Array.isArray(children) ? children : [children]).forEach(c=>{
+      if (c == null) return;
+      if (typeof c === "string") n.appendChild(document.createTextNode(c));
+      else n.appendChild(c);
+    });
+    return n;
+  };
+
+  const highlight = (text, query) => {
+    if (!query) return text;
+    const q = query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const re = new RegExp(`(${q})`, "gi");
+    return text.replace(re, "<mark>$1</mark>");
+  };
+
+  // ===== Data (itinerary) =====
+  // Day2 已移除 KASAHAN
+  // Day5 已確保不包含任何「NARA Thai Cuisine 桃園華泰店」相關字串
+  const trip = {
+    title: "2026 冬日關西親子自駕：山海湖・古都琉璃光",
+    range: "2026/2/7–2/14",
+    days: [
+      {
+        id: "day1",
+        date: "2026/2/7（六）",
+        dayLabel: "Day 1",
+        headline: "抵達與光之絕景｜桑名燈光秀",
+        areas: ["關西機場", "三重・桑名"],
+        sections: [
+          { title: "行程", items: [
+            { time: "13:00", name: "關西機場 抵達／租車", desc: "務必指定：雪地輪胎（Snow Tires）。", places:["Kansai International Airport"]},
+            { time: "下午", name: "駕車前往 三重縣桑名市", desc: "車程約 1.5–2 小時。", places:["Kuwana, Mie"]},
+            { time: "下午", name: "AEON MALL KUWANA", desc: "室內遊樂放電；Uniqlo 採買；晚餐商場解決。", places:["AEON MALL Kuwana"]},
+            { time: "18:30–", name: "名花之里（Nabana no Sato）燈光秀", desc: "光之隧道、水上燈海、主燈區。", places:["Nabana no Sato"]},
+            { time: "住宿", name: "Super Hotel Kuwana Ekimae", desc: "桑名站前。", places:["Super Hotel Kuwana Ekimae"]},
+          ] }
+        ]
+      },
+      {
+        id: "day2",
+        date: "2026/2/8（日）",
+        dayLabel: "Day 2",
+        headline: "御在所樹冰纜車＋設計美學溫泉（特色溫泉 I）",
+        areas: ["三重・菰野", "鳥羽"],
+        sections: [
+          { title: "行程", items: [
+            { time: "上午", name: "御在所纜車（Gozaisho Ropeway）", desc: "樹冰、冰瀑；山頂玩雪區。", places:["Gozaisho Ropeway"]},
+            { time: "午餐", name: "Aquaignis（片岡溫泉）", desc: "Confiture H（辻口博啟）等。", places:["AQUAIGNIS", "Kataoka Onsen", "Confiture H"]},
+            { time: "下午", name: "駕車南下 鳥羽", desc: "車程約 1 小時。", places:["Toba, Mie"]},
+            { time: "晚餐/住宿", name: "戶田家（Todaya）", desc: "海景＋海鮮會席。", places:["Toba Hotel Todaya"]},
+          ] }
+        ]
+      },
+      {
+        id: "day3",
+        date: "2026/2/9（一）",
+        dayLabel: "Day 3",
+        headline: "海洋探險＋江戶古道＋古民家體驗",
+        areas: ["鳥羽", "伊勢", "關宿", "滋賀・高島"],
+        sections: [
+          { title: "行程", items: [
+            { time: "上午", name: "鳥羽水族館", desc: "海獺與儒艮必看。", places:["Toba Aquarium"]},
+            { time: "午餐", name: "托福橫丁（Okage Yokocho）", desc: "伊勢神宮前老街。", places:["Okage Yokocho"]},
+            { time: "下午", name: "關宿（Seki-juku）", desc: "江戶驛站散步。", places:["Seki-juku"]},
+            { time: "傍晚", name: "Biwako Base（琵琶湖畔）", desc: "黃昏湖景休息。", places:["Biwako Base"]},
+            {
+              time: "晚上/住宿",
+              name: "古民家 Onigiri（Kominka Onigiri）",
+              desc: "整棟出租；可採買回民宿炊煮；距箱館山近。",
+              placeLinks: [
+                { label: "Google Maps：古民家 Onigiri（Kominka Onigiri）", url: "https://maps.app.goo.gl/wDN1ED6KjqT8F6S67" }
+              ]
+            },
+          ]},
+          { title: "入住小提醒", items: [
+            { time: "提醒", name: "餐飲規劃", desc: "周邊入夜餐廳少，建議先採買或先用餐再入住。", tags:["warn"]},
+            { time: "提醒", name: "保暖", desc: "夜晚氣溫低，老屋空間大，孩子穿保暖睡衣。", tags:["warn"]},
+          ]}
+        ]
+      },
+      {
+        id: "day4",
+        date: "2026/2/10（二）",
+        dayLabel: "Day 4",
+        headline: "箱館山玩雪＋水杉林蔭道＋雄琴溫泉（特色溫泉 II）",
+        areas: ["滋賀・高島", "雄琴溫泉"],
+        sections: [
+          { title: "行程", items: [
+            { time: "09:00–15:30", name: "箱館山滑雪場（Biwako Hakodateyama）", desc: "親子玩雪；俯瞰琵琶湖。", places:["Biwako Hakodateyama Ski Resort"]},
+            { time: "16:00–", name: "水杉林蔭大道（Metasequoia Namiki）", desc: "積雪時超夢幻。", places:["Metasequoia Namiki"]},
+            { time: "晚餐/住宿", name: "琵琶湖花街道飯店（或同級雄琴溫泉）", desc: "泡湯放鬆。", places:["Biwako Hanakaido", "Ogoto Onsen"]},
+          ]},
+          { title: "小提醒", items: [
+            { time: "提醒", name: "備用乾襪/內衣", desc: "玩雪後更換避免著涼。", tags:["warn"]},
+            { time: "提醒", name: "16:30 前到水杉大道", desc: "2月日落約 17:15。", tags:["warn"]},
+          ]}
+        ]
+      },
+      {
+        id: "day5",
+        date: "2026/2/11（三）",
+        dayLabel: "Day 5",
+        headline: "宇治抹茶香＋奈良琉璃繪（假日人潮多）",
+        areas: ["宇治", "奈良", "大阪"],
+        sections: [
+          { title: "行程", items: [
+            { time: "09:30", name: "前往宇治", desc: "國定假日，建議早出發。", places:["Uji, Kyoto"], tags:["warn"]},
+            { time: "上午", name: "平等院（Byodoin）", desc: "鳳凰堂。", places:["Byodoin"]},
+            { time: "抹茶", name: "中村藤吉（平等院店）", desc: "可外帶抹茶凍/霜淇淋。", places:["Nakamura Tokichi Honten (Byodo-in branch)"]},
+            { time: "抹茶", name: "伊藤久右衛門（宇治本店）", desc: "抹茶芭菲。", places:["Itohkyuemon Uji Honten"]},
+            { time: "抹茶", name: "增田茶舖（Masuda Chaho）", desc: "濃郁抹茶霜淇淋。", places:["Masuda Chaho"]},
+            { time: "下午", name: "奈良公園＆東大寺", desc: "看大佛、餵鹿。", places:["Nara Park", "Todai-ji Temple"]},
+            { time: "18:00–21:00", name: "奈良琉璃繪（Nara Rurie）", desc: "深藍琉璃燈海串聯古都。", places:["Nara Rurie", "Kasuga Taisha", "Kofuku-ji", "Todai-ji Temple"], tags:["good"]},
+            { time: "21:00後", name: "前往大阪市區", desc: "車程約 40 分。", places:["Osaka, Japan"]},
+          ]}
+        ]
+      },
+      {
+        id: "day6",
+        date: "2026/2/12（四）",
+        dayLabel: "Day 6",
+        headline: "勝運達摩＋萬博親子日（北大阪）",
+        areas: ["箕面", "萬博紀念公園", "大阪"],
+        sections: [
+          { title: "行程", items: [
+            { time: "上午", name: "勝尾寺（Katsuoji）", desc: "達摩海超壯觀。", places:["Katsuoji"]},
+            { time: "中午/下午", name: "Expocity", desc: "商場午餐。", places:["Expocity"]},
+            { time: "下午", name: "NIFREL", desc: "藝術×動物體驗。", places:["NIFREL"]},
+            { time: "購物", name: "LaLaport EXPOCITY", desc: "親子購物。", places:["Mitsui Shopping Park LaLaport EXPOCITY"]},
+          ]}
+        ]
+      },
+      {
+        id: "day7",
+        date: "2026/2/13（五）",
+        dayLabel: "Day 7",
+        headline: "經典大阪＋寶可夢旗艦＋道頓堀",
+        areas: ["大阪"],
+        sections: [
+          { title: "行程", items: [
+            { time: "上午", name: "海遊館", desc: "鯨鯊必看。", places:["Osaka Aquarium Kaiyukan"]},
+            { time: "14:20", name: "Pokemon Center Osaka DX", desc: "大丸心齋橋 9F。", places:["Pokémon Center Osaka DX"]},
+            { time: "傍晚", name: "心齋橋／道頓堀", desc: "跑跑人合照、吃大阪美食。", places:["Shinsaibashi-suji Shopping Street", "Dotonbori"]},
+          ]}
+        ]
+      },
+      {
+        id: "day8",
+        date: "2026/2/14（六）",
+        dayLabel: "Day 8",
+        headline: "Rinku Outlet 最後衝刺＋返家",
+        areas: ["臨空城", "關西機場"],
+        sections: [
+          { title: "行程", items: [
+            { time: "出發前", name: "Rinku Premium Outlets", desc: "最後購物。", places:["Rinku Premium Outlets"]},
+            { time: "14:00", name: "關西機場還車／報到", desc: "留足時間。", places:["Kansai International Airport"]},
+          ]}
+        ]
+      }
+    ]
+  };
+
+  // ===== Collect map targets + route points =====
+  const maxStops = 10;
+
+  function shouldDropTaiwanNoise(s){
+    const key = (s || "").toLowerCase();
+    return key.includes("桃園") || key.includes("中壢") || key.includes("華泰") || key.includes("tai cuisine");
+  }
+
+  function collectRoutePoints(day){
+    const pts = [];
+    const seen = new Set();
+    const push = (p) => {
+      const s = (p || "").trim();
+      if (!s) return;
+      if (shouldDropTaiwanNoise(s)) return;
+      const k = s.toLowerCase();
+      if (seen.has(k)) return;
+      seen.add(k);
+      pts.push(s);
+    };
+
+    (day.sections || []).forEach(sec=>{
+      (sec.items || []).forEach(it=>{
+        if (it.places && it.places.length){
+          it.places.forEach(push);
+        } else if (it.placeLinks && it.placeLinks.length){
+          push(it.name);
+        }
+      });
+    });
+
+    if (!pts.length && day.areas && day.areas.length){
+      day.areas.forEach(push);
+    }
+    return pts.slice(0, maxStops);
+  }
+
+  function collectMapTargets(day){
+    const targets = [];
+    const seen = new Set();
+
+    (day.sections || []).forEach(sec=>{
+      (sec.items || []).forEach(it=>{
+        if (it.placeLinks && it.placeLinks.length){
+          it.placeLinks.forEach(pl=>{
+            const label = pl.label || it.name || "Google Maps";
+            const key = "L:" + label;
+            if (seen.has(key)) return;
+            seen.add(key);
+            const query = (it.name || label).replace(/^Google Maps：/,"").trim();
+            targets.push({ label, embedSrc: mapsEmbed(query), openSrc: mapsLink(pl.url) });
+          });
+        }
+        if (it.places && it.places.length){
+          it.places.forEach(p=>{
+            if (shouldDropTaiwanNoise(p)) return;
+            const key = "P:" + p.toLowerCase();
+            if (seen.has(key)) return;
+            seen.add(key);
+            targets.push({ label:`Google Maps：${p}`, embedSrc: mapsEmbed(p), openSrc: mapsSearch(p) });
+          });
+        }
+      });
+    });
+
+    if (!targets.length && day.areas && day.areas.length){
+      const p = day.areas[0];
+      targets.push({ label:`Google Maps：${p}`, embedSrc: mapsEmbed(p), openSrc: mapsSearch(p) });
+    }
+
+    return targets.slice(0, 12);
+  }
+
+  // ===== Render =====
+  const daysWrap = document.getElementById("days");
+  const daylist = document.getElementById("daylist");
+  const qInput = document.getElementById("q");
+
+  function build(){
+    daysWrap.innerHTML = "";
+    daylist.innerHTML = "";
+
+    trip.days.forEach((d, idx) => {
+      // Bottom sheet day links
+      const link = el("div", {
+        class:"daylink",
+        onclick:()=> {
+          closeSheet();
+          document.getElementById(d.id).scrollIntoView({behavior:"smooth", block:"start"});
+        }
+      }, [
+        el("div",{class:"left"},[
+          el("div",{class:"d"}, `${d.dayLabel}｜${d.date}`),
+          el("div",{class:"meta"}, d.headline)
+        ]),
+        el("div",{class:"badge"}, (d.areas||[]).slice(0,2).join("・") + ((d.areas||[]).length>2?"…":""))
+      ]);
+      daylist.appendChild(link);
+
+      // Day details
+      const detail = el("details", { class:"day", id: d.id, open: idx === 0 });
+      const summary = el("summary", {}, [
+        el("div",{class:"sumL"},[
+          el("div",{class:"sumTitle"}, `${d.dayLabel}｜${d.date}`),
+          el("div",{class:"sumSub"}, d.headline),
+        ]),
+        el("div",{class:"sumR"}, (d.areas||[]).slice(0,2).join(" → ") + ((d.areas||[]).length>2?"…":""))
+      ]);
+
+      const body = el("div",{class:"body"});
+
+      // Map + Route section
+      const targets = collectMapTargets(d);
+      const routePoints = collectRoutePoints(d);
+      const routeUrl = mapsDirections(routePoints, "driving");
+
+      const mapSec = el("div",{class:"section"});
+      mapSec.appendChild(el("h3",{}, "🧭 今日路線＆互動地圖"));
+
+      const head = el("div",{class:"mapBoxHead"});
+      const leftInfo = el("div",{class:"small"},
+        `路線點數：${routePoints.length}（最多 ${maxStops} 點）｜建議按「開當日路線（多點）」用 Google Maps 導航。`
+      );
+
+      const controls = el("div",{class:"mapControls"});
+      const select = el("select",{class:"select", "aria-label":"選擇今日景點"});
+      targets.forEach((t,i)=> select.appendChild(el("option",{value:String(i)}, t.label)));
+
+      const openRouteBtn = el("a",{
+        class:"maplink",
+        href: routeUrl,
+        target:"_blank",
+        rel:"noopener noreferrer"
+      },[
+        el("span",{class:"pin"},"🧭"),
+        el("span",{}, "開當日路線（多點）")
+      ]);
+
+      const openPointBtn = el("a",{
+        class:"maplink",
+        href: targets[0]?.openSrc || "#",
+        target:"_blank",
+        rel:"noopener noreferrer"
+      },[
+        el("span",{class:"pin"},"📍"),
+        el("span",{}, "開單點")
+      ]);
+
+      controls.appendChild(select);
+      controls.appendChild(openRouteBtn);
+      controls.appendChild(openPointBtn);
+
+      head.appendChild(leftInfo);
+      head.appendChild(controls);
+
+      const frameWrap = el("div",{class:"mapFrameWrap"});
+      const iframe = el("iframe",{
+        class:"mapFrame",
+        src: targets[0]?.embedSrc || mapsEmbed(d.areas?.[0] || "Japan"),
+        loading:"lazy",
+        referrerpolicy:"no-referrer-when-downgrade",
+        allowfullscreen:""
+      });
+      frameWrap.appendChild(iframe);
+
+      mapSec.appendChild(head);
+      mapSec.appendChild(frameWrap);
+      body.appendChild(mapSec);
+
+      select.addEventListener("change", ()=>{
+        const i = Number(select.value);
+        const t = targets[i];
+        if (!t) return;
+        iframe.src = t.embedSrc;
+        openPointBtn.href = t.openSrc;
+      });
+
+      // Itinerary sections
+      (d.sections||[]).forEach(sec=>{
+        const box = el("div",{class:"section"});
+        box.appendChild(el("h3",{}, sec.title));
+        const items = el("div",{class:"items"});
+
+        (sec.items||[]).forEach(it=>{
+          const top = el("div",{class:"top"},[
+            el("div",{class:"name"}, it.name || ""),
+            el("div",{class:"time"}, it.time || "")
+          ]);
+          const desc = el("div",{class:"desc"}, it.desc || "");
+          const card = el("div",{class:"item"}, [top, desc]);
+
+          if (it.tags && it.tags.length){
+            const tr = el("div",{class:"tagrow"});
+            it.tags.forEach(t=>{
+              let cls = "tag";
+              if (t === "warn") cls += " warn";
+              if (t === "good") cls += " good";
+              if (t === "bad") cls += " bad";
+              tr.appendChild(el("span",{class:cls}, t==="warn"?"注意":t==="good"?"亮點":t==="bad"?"風險":t));
+            });
+            card.appendChild(tr);
+          }
+
+          if (it.placeLinks && it.placeLinks.length){
+            const mr = el("div",{class:"maps"});
+            it.placeLinks.forEach(p=>{
+              mr.appendChild(
+                el("a",{class:"maplink", href: mapsLink(p.url), target:"_blank", rel:"noopener noreferrer"},[
+                  el("span",{class:"pin"}, "📍"),
+                  el("span",{}, p.label)
+                ])
+              );
+            });
+            card.appendChild(mr);
+          }
+
+          if (it.places && it.places.length){
+            const mr = el("div",{class:"maps"});
+            it.places.forEach(p=>{
+              if (shouldDropTaiwanNoise(p)) return;
+              mr.appendChild(
+                el("a",{class:"maplink", href: mapsSearch(p), target:"_blank", rel:"noopener noreferrer"},[
+                  el("span",{class:"pin"}, "📍"),
+                  el("span",{}, `Google Maps：${p}`)
+                ])
+              );
+            });
+            if (mr.childNodes.length) card.appendChild(mr);
+          }
+
+          items.appendChild(card);
+        });
+
+        box.appendChild(items);
+        body.appendChild(box);
+      });
+
+      detail.appendChild(summary);
+      detail.appendChild(body);
+      daysWrap.appendChild(detail);
+    });
+  }
+
+  build();
+
+  // ===== Search / Filter =====
+  function applyFilter(){
+    const q = (qInput.value || "").trim().toLowerCase();
+    const dayDetails = [...document.querySelectorAll("details.day")];
+
+    dayDetails.forEach(dd=>{
+      const text = dd.textContent.toLowerCase();
+      const hit = !q || text.includes(q);
+      dd.classList.toggle("hidden", !hit);
+
+      if (hit){
+        const nodes = dd.querySelectorAll(".sumTitle, .sumSub, .name, .desc, h3, .meta, .small");
+        nodes.forEach(n=>{
+          const raw = n.getAttribute("data-raw") || n.textContent;
+          n.setAttribute("data-raw", raw);
+          if (n.tagName.toLowerCase() === "option") return;
+          n.innerHTML = highlight(raw, q);
+        });
+      }
+    });
+
+    // Bottom-sheet list filtering + highlight
+    const links = [...daylist.querySelectorAll(".daylink")];
+    links.forEach((lnk, i)=>{
+      const d = trip.days[i];
+      const combined = `${d.dayLabel} ${d.date} ${d.headline} ${(d.areas||[]).join(" ")}`.toLowerCase();
+      lnk.classList.toggle("hidden", !!q && !combined.includes(q));
+      const dEl = lnk.querySelector(".d");
+      const mEl = lnk.querySelector(".meta");
+      dEl.innerHTML = highlight(`${d.dayLabel}｜${d.date}`, q);
+      mEl.innerHTML = highlight(d.headline, q);
+    });
+  }
+  qInput.addEventListener("input", applyFilter);
+
+  // ===== Zoom =====
+  const zoom = document.getElementById("zoom");
+  const zoomLabel = document.getElementById("zoomLabel");
+  zoom.addEventListener("input", ()=>{
+    const v = Number(zoom.value);
+    document.documentElement.style.setProperty("--scale", (v/100).toFixed(2));
+    zoomLabel.textContent = `${v}%`;
+  });
+
+  // ===== Open / Close all =====
+  document.getElementById("openAll").addEventListener("click", ()=>{
+    document.querySelectorAll("details.day").forEach(d=> d.open = true);
+  });
+  document.getElementById("closeAll").addEventListener("click", ()=>{
+    document.querySelectorAll("details.day").forEach(d=> d.open = false);
+  });
+
+  // ===== Share text =====
+  document.getElementById("share").addEventListener("click", async ()=>{
+    const text =
+`【${trip.title}】（${trip.range}）
+手機版互動行程：可搜尋/縮放/跳日/每日互動地圖/一鍵開當日多點路線（Google Maps）
+提示：租車務必選雪地輪胎；奈良琉璃繪晚間很冷，記得帽手套暖暖包。`;
+
+    try{
+      await navigator.clipboard.writeText(text);
+      alert("已複製分享文字到剪貼簿 ✅\n可直接貼到LINE/WhatsApp群組");
+    }catch(e){
+      prompt("你的瀏覽器不允許自動複製，請手動複製：", text);
+    }
+  });
+
+  // ===== Bottom sheet (Jump to Day) =====
+  const sheetBack = document.getElementById("sheetBack");
+  const sheet = document.getElementById("sheet");
+  const fab = document.getElementById("fab");
+  const closeBtn = document.getElementById("closeSheet");
+
+  function openSheet(){
+    sheetBack.classList.add("show");
+    requestAnimationFrame(()=> sheet.classList.add("open"));
+  }
+  function closeSheet(){
+    sheet.classList.remove("open");
+    setTimeout(()=> sheetBack.classList.remove("show"), 200);
+  }
+  fab.addEventListener("click", openSheet);
+  closeBtn.addEventListener("click", closeSheet);
+  sheetBack.addEventListener("click", closeSheet);
+
+  // ===== Improve mobile UX: collapse others when opening one day =====
+  document.addEventListener("toggle", (e)=>{
+    const target = e.target;
+    if (!(target instanceof HTMLDetailsElement)) return;
+    if (!target.classList.contains("day")) return;
+    if (!target.open) return;
+    document.querySelectorAll("details.day").forEach(d=>{
+      if (d !== target) d.open = false;
+    });
+  }, true);
+</script>
+</body>
+</html>
